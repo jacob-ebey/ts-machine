@@ -150,6 +150,10 @@ let parseMachineDefinition = defineMachine<{
     const node = eventData;
 
     if (!node || !ts.isStringLiteral(node)) {
+      if (node && ts.isTypeReferenceNode(node)) {
+        return;
+      }
+
       transition("defineMachine");
       return;
     }
