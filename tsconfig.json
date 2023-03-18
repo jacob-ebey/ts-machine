@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+
+    "target": "ES2020",
+    "module": "NodeNext",
+    "lib": ["ES2020"],
+    "esModuleInterop": false,
+
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

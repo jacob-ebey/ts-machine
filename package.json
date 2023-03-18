@@ -1,0 +1,43 @@
+{
+  "name": "ts-machine",
+  "version": "0.0.1",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacob-ebey/ts-machine.git"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "README.md"
+  ],
+  "browser": "./dist/index.min.js",
+  "exports": {
+    ".": {
+      "browser": "./dist/index.min.js",
+      "bun": "./src/index.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && uglifyjs dist/index.js -o dist/index.min.js --compress --mangle --module",
+    "postbuild": "filesize",
+    "test": "node --loader tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@ampproject/filesize": "4.3.0",
+    "prettier": "2.8.4",
+    "tsx": "3.12.5",
+    "typescript": "5.0.2",
+    "uglify-js": "3.17.4"
+  },
+  "filesize": {
+    "./dist/index.min.js": {
+      "gzip": "0.6 kB"
+    }
+  }
+}
