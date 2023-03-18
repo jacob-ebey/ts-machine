@@ -6,7 +6,10 @@ export interface Machine<
 > {
   data: Data;
   state: State;
-  emit<E extends Event>(event: E, eventData?: EventData[E]): void;
+  emit<E extends Event>(
+    event: E,
+    eventData?: EventData[E]
+  ): void | Promise<void>;
   subscribe(callback: (machine: this) => void): () => void;
 }
 

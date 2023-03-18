@@ -102,12 +102,14 @@ export function defineMachine<Data = never>(): MachineDefinition<Data> {
             transition(result);
             return;
           }
-          result.catch((reason) => {
-            console.error(
-              "An unhandled error occurred in a machine event handler"
-            );
-            console.error(reason);
-          });
+          return result
+            .then(() => {})
+            .catch((reason) => {
+              console.error(
+                "An unhandled error occurred in a machine event handler"
+              );
+              throw reason;
+            });
         },
         subscribe(callback) {
           subscriptions.add(callback);
