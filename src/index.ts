@@ -59,7 +59,7 @@ export function defineMachine<Data = never>(): MachineDefinition<Data> {
         data,
         emit(event, eventData) {
           if (!_events.has(event)) {
-            throw new Error("Invalid event");
+            throw new Error(`Invalid event '${event}'`);
           }
 
           const callbacks = _callbacks[event];

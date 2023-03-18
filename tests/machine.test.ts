@@ -4,6 +4,20 @@ import { it } from "node:test";
 import { defineMachine } from "../src/index.js";
 import { tick } from "./helpers.js";
 
+it("throws if invalid event", () => {
+  const definition = defineMachine<null>()
+    .states(["init"])
+    .transitions({
+      init: [],
+    })
+    .events(["EVENT"]);
+
+  const machine = definition.create("init", null);
+  assert.throws(() => {
+    machine.emit("INVALID" as any);
+  }, /Invalid event 'INVALID'/);
+});
+
 it("throws if no callback is registered for event", () => {
   const definition = defineMachine<null>()
     .states(["init"])
