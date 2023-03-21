@@ -10,7 +10,7 @@
     "typecheck": "turbo run typecheck",
     "format": "prettier **/*.ts **/*.md **/tsconfig*.json **/package.json --write",
     "release": "changeset publish",
-    "version": "changeset version"
+    "version": "changeset version && npm i --package-lock-only"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
