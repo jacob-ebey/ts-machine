@@ -15,7 +15,7 @@ it("can implement a stoplight", async () => {
     })
     .events(["SWITCH"])
     .on("SWITCH", ["green"], () => "yellow")
-    .on("SWITCH", ["yellow"], ({}) => "red")
+    .on("SWITCH", ["yellow"], () => "red")
     .on("SWITCH", ["red"], () => "green");
 
   const light = lightMachine.create("red", null);

@@ -108,10 +108,7 @@ describe("can implement a fetcher with refetch", async () => {
     });
     assert.equal(fetcher.state, "idle");
     fetcher.emit("FETCH");
-    assert.throws(
-      () => fetcher.emit("FETCH"),
-      /No callback defined for event 'FETCH' and state 'loading'/
-    );
+    assert.throws(() => fetcher.emit("FETCH"), /No 'FETCH' 'loading' cb/);
     await waitForState(fetcher, "loading");
     await waitForState(fetcher, "success");
     assert.equal(fetcher.data.result, "success 1");

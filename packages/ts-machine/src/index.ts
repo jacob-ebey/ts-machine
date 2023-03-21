@@ -69,9 +69,7 @@ export function defineMachine<Data = never>(): MachineDefinition<Data> {
 
           const callback = callbacks[machine.state];
           if (!callback) {
-            throw new Error(
-              `No callback defined for event '${event}' and state '${machine.state}'`
-            );
+            throw new Error(`No '${event}' '${machine.state}' cb`);
           }
 
           const transition = (nextState: never) => {
@@ -102,14 +100,7 @@ export function defineMachine<Data = never>(): MachineDefinition<Data> {
             transition(result);
             return;
           }
-          return result
-            .then(() => {})
-            .catch((reason) => {
-              console.error(
-                "An unhandled error occurred in a machine event handler"
-              );
-              throw reason;
-            });
+          return result;
         },
         subscribe(callback) {
           subscriptions.add(callback);

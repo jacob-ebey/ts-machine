@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@fixture/router",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "preact": "10.13.1",
+    "router-trie": "0.0.8",
+    "ts-machine": "*"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "2.5.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "typescript": "5.0.2",
+    "vite": "4.2.0"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "ts-machine",
+  "version": "0.0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacob-ebey/ts-machine.git"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "README.md"
+  ],
+  "browser": "./dist/index.min.js",
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "concurrently \"npm:build:*\"",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:esm": "esbuild src/index.ts --bundle --format=esm --outfile=dist/index.mjs",
+    "build:esm:min": "esbuild src/index.ts --bundle --format=esm --outfile=dist/index.min.mjs --minify && filesize",
+    "build:cjs": "esbuild src/index.ts --bundle --format=cjs --outfile=dist/index.cjs",
+    "test": "node --loader tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@ampproject/filesize": "4.3.0",
+    "@types/node": "18.15.3",
+    "concurrently": "7.6.0",
+    "esbuild": "0.17.12",
+    "prettier": "2.8.4",
+    "tsx": "3.12.5",
+    "typescript": "5.0.2",
+    "uglify-js": "3.17.4"
+  },
+  "filesize": {
+    "./dist/index.min.mjs": {
+      "gzip": "0.6 kB"
+    }
+  }
+}

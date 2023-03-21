@@ -44,7 +44,7 @@ it("throws if no callback is registered for event in current state", () => {
   const machine = definition.create("init", null);
   assert.throws(() => {
     machine.emit("EVENT");
-  }, /No callback defined for event 'EVENT' and state 'init'/);
+  }, /No 'EVENT' 'init' cb/);
 });
 
 it("surfaces errors for sync event callbacks", () => {
