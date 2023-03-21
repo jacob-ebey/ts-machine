@@ -7,6 +7,7 @@
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
     "format": "prettier **/*.ts **/*.md **/tsconfig*.json **/package.json --write",
     "release": "changeset publish",
     "version": "changeset version"

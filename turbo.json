@@ -5,12 +5,12 @@
       "dependsOn": ["^build"],
       "outputs": ["dist"]
     },
+    "test": {
+      "inputs": ["src/**/*", "tests/**/*"]
+    },
     "typecheck": {
       "inputs": ["**/*.ts", "**/*.ts", "tsconfig.json"],
       "outputs": []
-    },
-    "test": {
-      "inputs": ["src/**/*", "tests/**/*"]
     }
   }
 }
