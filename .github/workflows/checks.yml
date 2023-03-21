@@ -1,9 +1,4 @@
-name: Checks
-
-on: [push]
-
 concurrency: checks-${{ github.workflow }}-${{ github.ref }}
-
 jobs:
   checks:
     name: Build, Typecheck, Test
@@ -28,3 +23,8 @@ jobs:
 
       - name: Test
         run: npm run test
+name: Checks
+on:
+  push:
+    branches:
+      - "!main"
