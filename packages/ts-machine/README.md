@@ -1,4 +1,4 @@
-# ts-machine ![min size](https://badgen.net/bundlephobia/min/ts-machine) ![minzip size](https://badgen.net/bundlephobia/minzip/ts-machine)
+# ts-machine ![size info](https://deno.bundlejs.com/?q=ts-machine&badge=detailed)
 
 A simple state machine with _good enough_ build time typechecking support.
 
